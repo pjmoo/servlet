@@ -39,10 +39,28 @@
 
   <build>
     <plugins>
-<plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.4.0</version>
-      </plugin>    </plugins>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven3-plugin</artifactId>
+        <version>1.10.27</version>
+        <configuration>
+          <container>
+            <containerId>tomcat10x</containerId>
+          </container>
+          <deployables>
+            <deployable>
+              <properties>
+                <context>/</context>
+              </properties>
+            </deployable>
+          </deployables>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
